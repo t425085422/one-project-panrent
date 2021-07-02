@@ -1,0 +1,5 @@
+mysql:
+  driver: com.mysql.jdbc.Driver
+  password: jkmfwzd
+  url: jdbc:mysql://121.5.238.17:3306/jkmf?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+  username: root
