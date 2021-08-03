@@ -1,0 +1,14 @@
+###服务注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8090/eureka/
+
+###api网关服务端口号
+server:
+  port: 8082
+
+###网关名称
+spring:
+  application:
+    name: user

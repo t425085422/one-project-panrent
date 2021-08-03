@@ -10,23 +10,25 @@ server:
 ###网关名称
 spring:
   application:
-    name: service-zuul
+    name: gateway
   cloud:
     gateway:
       discovery:
         locator:
-          enabled: true # 启用自动根据服务ID生成路由
-          lower-case-service-id: true # 设置路由的路径为小写的服务ID
+          enabled: true
+          lowerCaseServiceId: true #zuul默认是小写 切换为gateway默认是大写  做兼容处理 加上该配置...
       routes:
-        - id: taotao-auth
-          uri: lb://taotao-auth
+        - id: taotao-user
+          # lb代表从注册中心获取服务, 重点！/info必须使用http进行转发，lb代表从注册中心获取服务
+          uri: lb://USER
+          # 优先级 数字越小 优先级越靠前
+          order: 10000
+          # 重点！转发该路径！
           predicates:
-            - Path=/taotao-auth/**
-          filters:
-            - StripPrefix=1 # 移除前缀 taotao-auth
-        - id: taotao-admin
-          uri: lb://taotao-user
+            - Path=/api/user/**
+
+        - id: search_route
+          uri: http://127.0.0.1:8082
           predicates:
-            - Path=/taotao-user/**
-          filters:
-            - StripPrefix=1
+            - Path=/search/**
+

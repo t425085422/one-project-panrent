@@ -20,24 +20,20 @@
         <module>eureka</module>
         <module>commons</module>
         <module>order</module>
-        <module>users</module>
+        <module>user</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>${spring.boot.version}</version>
         </dependency>
 
         <dependency>
